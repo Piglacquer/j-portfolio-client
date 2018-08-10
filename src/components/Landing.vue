@@ -16,4 +16,7 @@
     }
 </script>
 <style scoped>
+    h1 {
+        height: 100vh;
+    }
 </style>

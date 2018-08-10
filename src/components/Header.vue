@@ -1,7 +1,7 @@
 <template>
     <div class='header'>
         <transition name="slide">
-            <div v-if='headerVisible' >
+            <div v-if='headerVisible || this.scrolled' >
                 <ul class='nav-items'>
                     <li>First Item</li>
                     <li>Second Item</li>
@@ -11,7 +11,7 @@
             </div>
         </transition>
         <div class='hamburger'>
-            <img src='asdf' v-on:click='showHeader'>
+            <img src='../../static/Hamburger.png' v-on:click='showHeader'>
         </div>
     </div>
 </template>
@@ -27,7 +27,11 @@
         methods: {
             showHeader() {
                 this.headerVisible = !this.headerVisible
-            }
+             },
+        },
+        props: {
+            scrolled: Boolean,
+            yScroll: Number
         }
     }
 </script>
@@ -36,18 +40,25 @@
     .header {
         width: 100vw;
         background-color: blue;
+        position: fixed;
     }
 
-.slide-fade-enter-active {
-  transition: all .3s ease;
-}
-.slide-fade-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-}
+    .slide-enter-active {
+    transition: all .3s ease;
+    }
+
+    .slide-leave-active {
+    transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    }
 
     .hamburger {
         display: flex;
         justify-content: center;
+    }
+
+    .hamburger img {
+        height: 50px;
+        width: 50px;
     }
 
     .nav-items{
