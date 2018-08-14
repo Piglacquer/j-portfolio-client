@@ -1,67 +1,65 @@
 <template>
   <div id="app">
-    <div>
-      <Header :scrolled='scrolled'/>
+    <div id="wrapper">
       <router-view/>
-      <Footer/>
     </div>
   </div>
 </template>
 
 <script>
-import Header from './components/Header'
-import Footer from './components/Footer'
-
 export default {
   name: 'App',
   components: {
-    Header,
-    Footer
-  },
-  data () {
-  return {
-    scrolled: false,
-    yScroll: 0,
-    previousHighYScroll: 0,
-    previousLowYScroll: 0 
-    }
-  },
-  methods: {
-    handleScroll () {
-        this.yScroll = window.scrollY
-        if (this.yScroll < this.previousHighYScroll || this.yScroll < this.previousLowYScroll) {
-          this.previousLowYScroll = this.yScroll
-          this.previousHighYScroll = this.yScroll + 1
-          this.scrolled = false
-        }
-        else {
-          this.previousHighYScroll = this.yScroll
-          this.scrolled = true
-        }
-
-         console.log(this.yScroll, 'scrollY')
-        console.log(this.previousHighYScroll, 'prevHighYScroll')
-        console.log(this.previousLowYScroll, 'prevLowYScroll')
-        console.log(this.scrolled, 'scrolled')
-        //  return this.scrolled = false
-      }
-    },
-    beforeMount () {
-          window.addEventListener('scroll', this.handleScroll)
-      },
-    beforeDestroy () {
-          window.removeEventListener('scroll', this.handleScroll)
-    }
+  }
+  // data () {
+  // return {
+  //   scrolled: false,
+  //   yScroll: 0,
+  //   previousHighYScroll: 0,
+  //   previousLowYScroll: 0,
+  //   headerVisible: false 
+  //   }
+  // },
+  // methods: {
+  //   handleScroll () {
+  //       this.yScroll = window.scrollY
+  //       if (this.yScroll < this.previousHighYScroll || this.yScroll < this.previousLowYScroll) {
+  //         this.previousLowYScroll = this.yScroll
+  //         this.previousHighYScroll = this.yScroll + 1
+  //         this.scrolled = false
+  //       }
+  //       else {
+  //         this.previousHighYScroll = this.yScroll
+  //         this.scrolled = true
+  //       }
+  //     },
+  //     toggleHeader() {
+  //       this.headerVisible = !this.headerVisible
+  //       this.scrolled = false
+  //     }
+  //   },
+  //   beforeMount () {
+  //         window.addEventListener('scroll', this.handleScroll)
+  //     },
+  //   beforeDestroy () {
+  //         window.removeEventListener('scroll', this.handleScroll)
+  //   }
 }
 </script>
 
 <style>
   #app {
     background-color: white;
-    display: flex;
-    justify-content: space-between;
   }
-  
+
+  #wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100vw;
+  }
+
   /* Header {
     position: absolute;
     color: yellow;

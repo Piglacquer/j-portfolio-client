@@ -1,5 +1,7 @@
 <template>
-    <h1>This is the landing page</h1>
+    <div id='footer'>
+        <h1>This is the landing page</h1>
+    </div>
 </template>
 
 <script>
@@ -7,7 +9,7 @@
         name: 'Landing',
         data() {
             return{
-
+                alive: true
             }
         },
         props: {
@@ -16,7 +18,7 @@
     }
 </script>
 <style scoped>
-    h1 {
-        height: 100vh;
+    #footer {
+        width: 100vw;
     }
 </style>
