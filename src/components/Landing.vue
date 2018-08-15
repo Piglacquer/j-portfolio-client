@@ -1,6 +1,6 @@
 <template>
-    <div id='footer'>
-        <h1>This is the landing page</h1>
+    <div id='landing'>
+        <router-link to='/main'>main</router-link>
     </div>
 </template>
 
@@ -18,7 +18,7 @@
     }
 </script>
 <style scoped>
-    #footer {
+    #landing {
         width: 100vw;
     }
 </style>

@@ -2,6 +2,7 @@
     <div id='main'>
         <Header :scrolled='scrolled' :headerVisible='headerVisible' :yScroll='yScroll' v-on:showHeader='toggleHeader'/>
         <h1> YOOOOOO </h1>
+        <router-view />
         <Footer />
     </div>
 </template>

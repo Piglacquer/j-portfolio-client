@@ -3,10 +3,10 @@
         <transition-group name="slide">
             <div :key='1' v-if='headerVisible || this.scrolled' >
                 <ul class='nav-items'>
-                    <li>First Item</li>
-                    <li>Second Item</li>
-                    <li>Third Item</li>
-                    <li>Fourth Item</li>
+                    <router-link to='/about' class='nav-link'>About</router-link>
+                    <router-link to='/film' class='nav-link'>Film</router-link>
+                    <router-link to='/projects' class='nav-link'>Projects</router-link>
+                    <router-link to='/contact' class='nav-link'>Contact</router-link>
                 </ul>
             </div>
             <div :key='2' class='hamburger'>
@@ -40,7 +40,7 @@
 <style scoped>
     .header {
         width: 100vw;
-        background-color: blue;
+        background-color: #CCB796;
         position: fixed;
     }
 
@@ -69,7 +69,7 @@
         justify-content: flex-end;
     }
 
-    .nav-items li {
+    .nav-link  {
         padding-right: 10px;
         padding-top: 20px;
         font-size: 2rem;
